@@ -1,7 +1,7 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-# Builds the nanp_prefixes.db SQLite database and data/nanp_prefixes.csv
+# Builds the borkfone.db SQLite database and borkfone.csv
 # from the source data files.
 #
 # Source data:
@@ -18,8 +18,8 @@ require "csv"
 ROOT = File.expand_path("..", __dir__)
 GEOCODING_FILE = File.join(ROOT, "data", "nanp_geocoding.txt")
 COORDINATES_FILE = File.join(ROOT, "data", "nanp_coordinates.txt")
-DB_FILE = File.join(ROOT, "nanp_prefixes.db")
-CSV_FILE = File.join(ROOT, "nanp_prefixes.csv")
+DB_FILE = File.join(ROOT, "borkfone.db")
+CSV_FILE = File.join(ROOT, "borkfone.csv")
 
 # Load coordinates: location_name → [lat, lon]
 def load_coordinates

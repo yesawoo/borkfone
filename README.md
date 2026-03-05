@@ -1,4 +1,4 @@
-# nanp-prefixes
+# BorkFone
 
 A SQLite database (and CSV) mapping North American phone number prefixes to cities, states/provinces, and geographic coordinates.
 
@@ -16,8 +16,8 @@ Given a phone number like `+1 (509) 216-1234`, look up that it's `Spokane, WA` a
 
 | File | Size | Description |
 |------|------|-------------|
-| `nanp_prefixes.db` | 4.2 MB | SQLite database (recommended) |
-| `nanp_prefixes.csv` | 2.0 MB | CSV export of the same data |
+| `borkfone.db` | 4.2 MB | SQLite database (recommended) |
+| `borkfone.csv` | 2.0 MB | CSV export of the same data |
 | `data/nanp_geocoding.txt` | source | Prefix-to-location mappings |
 | `data/nanp_coordinates.txt` | source | Location-to-coordinate mappings |
 
@@ -151,7 +151,7 @@ ORDER BY prefix;
 ```ruby
 require "sqlite3"
 
-db = SQLite3::Database.new("nanp_prefixes.db")
+db = SQLite3::Database.new("borkfone.db")
 db.results_as_hash = true
 
 phone = "+12125551234"
@@ -173,7 +173,7 @@ puts "#{row['city']}, #{row['state']} (#{row['latitude']}, #{row['longitude']})"
 ```python
 import sqlite3, re
 
-db = sqlite3.connect("nanp_prefixes.db")
+db = sqlite3.connect("borkfone.db")
 db.row_factory = sqlite3.Row
 
 phone = "+12125551234"
@@ -194,7 +194,7 @@ print(f"{row['city']}, {row['state']} ({row['latitude']}, {row['longitude']})")
 
 ```javascript
 const Database = require('better-sqlite3');
-const db = new Database('nanp_prefixes.db');
+const db = new Database('borkfone.db');
 
 const phone = '+12125551234';
 const digits = phone.replace(/\D/g, '').replace(/^1/, '');
